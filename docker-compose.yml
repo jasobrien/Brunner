@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  brunner:
+    build: .
+    image: brunner
+    container_name: brunner
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Collections:/app/Collections
+      - ./results.db:/app/results.db
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped

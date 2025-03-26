@@ -1,0 +1,83 @@
+[
+  {
+    "iterationIndex": 0,
+    "summary": {
+      "totalRequests": 2,
+      "passedRequests": 2,
+      "failedRequests": 0,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0
+    },
+    "results": [
+      {
+        "test": {
+          "filename": "get-example.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "https://example.com",
+          "headers": {}
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "accept-ranges": "bytes",
+            "content-type": "text/html",
+            "etag": "\"84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134\"",
+            "last-modified": "Mon, 13 Jan 2025 20:11:20 GMT",
+            "vary": "Accept-Encoding",
+            "content-length": "648",
+            "cache-control": "max-age=3188",
+            "date": "Sun, 23 Mar 2025 03:51:12 GMT",
+            "alt-svc": "h3=\":443\"; ma=93600,h3-29=\":443\"; ma=93600,quic=\":443\"; ma=93600; v=\"43\"",
+            "connection": "close"
+          },
+          "data": "<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n</body>\n</html>\n",
+          "responseTime": 920
+        },
+        "error": null,
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.927892177,
+        "suitename": "get-example",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "MainPage.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:3000",
+          "headers": {}
+        },
+        "response": {
+          "status": 500,
+          "statusText": "Internal Server Error",
+          "headers": {
+            "x-powered-by": "Express",
+            "content-security-policy": "default-src 'none'",
+            "x-content-type-options": "nosniff",
+            "content-type": "text/html; charset=utf-8",
+            "content-length": "148",
+            "date": "Sun, 23 Mar 2025 03:51:12 GMT",
+            "connection": "close"
+          },
+          "data": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Internal Server Error</pre>\n</body>\n</html>\n",
+          "responseTime": 9
+        },
+        "error": null,
+        "assertionResults": [],
+        "testResults": [],
+        "runtime": 0.011098494,
+        "suitename": "MainPage",
+        "iterationIndex": 0
+      }
+    ]
+  }
+]

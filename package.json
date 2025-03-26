@@ -1,0 +1,19 @@
+{
+  "name": "brunner",
+  "author": { "name": "Jim O'Brien" },
+  "version": "1.0.0",
+  "description": "Bruno Collections Runner with Results Dashboard",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@usebruno/cli": "^0.9.0",
+    "better-sqlite3": "^8.5.0",
+    "chart.js": "^4.3.0",
+    "express": "^4.18.2",
+    "glob": "^10.3.3",
+    "moment": "^2.29.4"
+  }
+}

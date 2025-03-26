@@ -1,0 +1,11 @@
+{
+  "name": "Example Request",
+  "request": {
+    "method": "GET",
+    "url": "https://example.com",
+    "headers": [],
+    "body": {
+      "mode": "none"
+    }
+  }
+}
