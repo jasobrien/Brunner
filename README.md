@@ -61,6 +61,11 @@ Brunner is a powerful tool for running [Bruno](https://www.usebruno.com/) API co
    ```
    chmod +x node_modules/.bin/bru
    ```
+4. Run application
+
+```
+ npm start
+```
 
 ### Docker Installation
 
