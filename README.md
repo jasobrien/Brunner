@@ -28,6 +28,13 @@ Brunner is a powerful tool for running [Bruno](https://www.usebruno.com/) API co
   - Execution history tracking
   - Collection grouping by environment
 
+- **Lightweight Storage**
+
+  - Simple JSON file-based storage
+  - No database dependencies
+  - Easy to backup and transfer
+  - Persistent storage across restarts
+
 - **Deployment Options**
   - Run as a standalone Node.js application
   - Deploy using Docker for easy containerization
@@ -52,20 +59,9 @@ Brunner is a powerful tool for running [Bruno](https://www.usebruno.com/) API co
    ```
 
 2. Install dependencies:
-
    ```
    npm install
    ```
-
-3. Ensure the Bruno CLI is executable (done automatically in postinstall):
-   ```
-   chmod +x node_modules/.bin/bru
-   ```
-4. Run application
-
-```
- npm start
-```
 
 ### Docker Installation
 

@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - ./Collections:/app/Collections
-      - ./results.db:/app/results.db
+      - ./data:/app/data
     environment:
       - NODE_ENV=production
       - PORT=3000

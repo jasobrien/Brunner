@@ -9,11 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@usebruno/cli": "^0.9.0",
-    "better-sqlite3": "^8.5.0",
-    "chart.js": "^4.3.0",
-    "express": "^4.18.2",
-    "glob": "^10.3.3",
-    "moment": "^2.29.4"
+    "@usebruno/cli": "^1.40.0",
+    "express": "^4.21.2",
+    "glob": "^11.0.1",
+    "moment": "^2.30.1"
   }
 }

@@ -1,4 +1,5 @@
 # Brunner-specific files
+data/
 results.db
 .write-test
 

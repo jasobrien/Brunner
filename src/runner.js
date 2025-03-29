@@ -28,7 +28,7 @@ async function getEnvironmentFiles(collectionPath) {
   return envFiles;
 }
 
-async function runCollections(collectionsPath, db) {
+async function runCollections(collectionsPath) {
   console.log('Scanning for Bruno collections...');
   
   // Find all Bruno collection directories
@@ -149,13 +149,13 @@ async function runCollections(collectionsPath, db) {
         
         const status = hasErrors ? 'fail' : 'pass';
         
-        // Save collection result
-        const resultId = saveResult(db, collection, env, status, durationMs);
+        // Save collection result - remove the db parameter
+        const resultId = saveResult(null, collection, env, status, durationMs);
         
-        // Save individual request results
+        // Save individual request results - remove the db parameter
         for (const request of requests) {
           saveRequestResult(
-            db, 
+            null, 
             resultId, 
             request.name, 
             request.isError ? 'fail' : 'pass', 
@@ -167,7 +167,7 @@ async function runCollections(collectionsPath, db) {
         console.log(`Completed collection '${collection}' with environment '${env}'. Status: ${status}`);
       } catch (error) {
         const durationMs = Date.now() - startTime;
-        saveResult(db, collection, env, 'error', durationMs, error.message);
+        saveResult(null, collection, env, 'error', durationMs, error.message);
         console.error(`Error running collection '${collection}' with environment '${env}':`, error.message);
       }
     }

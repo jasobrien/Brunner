@@ -1,14 +1,11 @@
 const express = require('express');
 const path = require('path');
-const { getResults, getRequestResults } = require('./database');
+const { getResults, getRequestResults, getAllRequestResults } = require('./database');
 const { getFrequency, setFrequency } = require('./settings');
 
-function startServer(db, scheduleRunsFunc) {
+function startServer(scheduleRunsFunc) {
   const app = express();
   const port = process.env.PORT || 3000;
-  
-  // Store db in global for scheduler access
-  global.db = db;
   
   // Parse JSON request bodies
   app.use(express.json());
@@ -19,8 +16,8 @@ function startServer(db, scheduleRunsFunc) {
   // API endpoint to get all results
   app.get('/api/results', (req, res) => {
     try {
-      const results = getResults(db);
-      console.log(`Fetched ${results.length} results from database`);
+      const results = getResults();
+      console.log(`Fetched ${results.length} results from storage`);
       res.json(results);
     } catch (error) {
       console.error('Error fetching results:', error);
@@ -32,7 +29,7 @@ function startServer(db, scheduleRunsFunc) {
   app.get('/api/results/:id/requests', (req, res) => {
     try {
       const { id } = req.params;
-      const requestResults = getRequestResults(db, id);
+      const requestResults = getRequestResults(null, id);
       console.log(`Fetched ${requestResults.length} request results for result ID ${id}`);
       res.json(requestResults);
     } catch (error) {
@@ -41,34 +38,11 @@ function startServer(db, scheduleRunsFunc) {
     }
   });
   
-  // New API endpoint to get all request results
+  // API endpoint to get all request results
   app.get('/api/all-request-results', (req, res) => {
     try {
       console.log('Fetching all request results...');
-      
-      // Get all results
-      const results = getResults(db);
-      
-      // For each result, get the request results and add the collection info
-      const allRequestResults = [];
-      
-      results.forEach(result => {
-        try {
-          const requestResults = getRequestResults(db, result.id);
-          
-          requestResults.forEach(request => {
-            allRequestResults.push({
-              ...request,
-              collection_name: result.collection_name,
-              environment: result.environment,
-              timestamp: result.timestamp
-            });
-          });
-        } catch (error) {
-          console.error(`Error getting request results for ID ${result.id}:`, error);
-        }
-      });
-      
+      const allRequestResults = getAllRequestResults();
       console.log(`Returning ${allRequestResults.length} request results`);
       res.json(allRequestResults);
     } catch (error) {

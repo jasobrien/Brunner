@@ -37,7 +37,7 @@ function scheduleRuns(frequency) {
   scheduledTimer = setInterval(async () => {
     try {
       console.log(`Running scheduled collection run (${frequency} interval)...`);
-      await runCollections(collectionsPath, global.db);
+      await runCollections(collectionsPath);
       console.log('Scheduled collection run completed.');
     } catch (error) {
       console.error('Error in scheduled collection run:', error);
@@ -51,17 +51,17 @@ async function main() {
   try {
     console.log('Initializing Brunner...');
     
-    // Initialize database
-    console.log('Setting up database...');
-    const db = setupDatabase();
+    // Initialize storage
+    console.log('Setting up storage...');
+    setupDatabase();
     
     // Start web server first so it's ready when tests complete
     console.log('Starting web server...');
-    startServer(db, scheduleRuns, FREQUENCY_OPTIONS);
+    startServer(scheduleRuns);
     
     // Run all collections
     console.log('Running collections...');
-    await runCollections(collectionsPath, db);
+    await runCollections(collectionsPath);
     console.log('Initial collection run completed.');
     
     // Get current frequency from settings
